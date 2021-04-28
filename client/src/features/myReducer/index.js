@@ -8,7 +8,7 @@ function myReducer (state = {players: [], answers: []}, action) {
       case 'ADD_PLAYER':
         return ({
             ...state,
-            players: action.payload.map(player => ({player: player, ready: false}))
+            players: action.payload.map(player => ({player: player, username: username, ready: false}))
         })
         case 'PLAYER_USERNAME':
           const playerToName = state.players.find(p => p.player === action.payload.id)

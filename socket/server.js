@@ -7,13 +7,15 @@ const io = require("socket.io")(httpServer, {
     }
   });
 
+let sockets = []
 io.on('connection', socket => {
 
     socket.on('create', (roomId) => {
         console.log('created room', roomId)
         socket.join(roomId);
-        console.log(Array.from(io.sockets.adapter.rooms.get(roomId)))
-        io.to(roomId).emit('players-in-room', Array.from(io.sockets.adapter.rooms.get(roomId)))
+        console.log(sockets)
+        sockets.push({player: socket.id, username: null})
+        io.to(roomId).emit('players-in-room', sockets)
         // io.to(roomId).emit('count', io.sockets.adapter.rooms.get(roomId) ? io.sockets.adapter.rooms.get(roomId).size : 0)
         socket.on('new-message', ({ username, message }) => {
             io.in(roomId).emit('incoming-message', { username, message });
@@ -27,16 +29,19 @@ io.on('connection', socket => {
 
         //handle user adds username
         socket.on('name', (payload) => {
+            sockets.find(s => s.player === payload.id).username = payload.username
             console.log(payload.id + " has username " + payload.username)
-            io.to(roomId).emit('player-name', (payload))
+            console.log(sockets)
+            io.to(roomId).emit('players-in-room', sockets)
         })
 
     // *************************************************************************************
         // HANDLE USER ENTERS ROOM
         socket.on("disconnect", () => {
             // io.to(roomId).emit('count', io.sockets.adapter.rooms.get(roomId) ? io.sockets.adapter.rooms.get(roomId).size : 0)
+            sockets.splice(sockets.findIndex(s => s.player === socket.id), 1)
             if (io.sockets.adapter.rooms.get(roomId)) {
-                io.to(roomId).emit('players-in-room', Array.from(io.sockets.adapter.rooms.get(roomId)))
+                io.to(roomId).emit('players-in-room', sockets)
             }
             // io.to(roomId).emit('admin-message', `${socket.id} has left`)
         });
