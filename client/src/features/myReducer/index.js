@@ -30,7 +30,7 @@ function myReducer (state = {players: [], answers: []}, action) {
             return { ...state, players: updatedPlayers }
             case 'ALL_NOT_READY':
               const unReadyPlayers = [ 
-                ...state.players.map(p => ({player: p.player, ready: false}))
+                ...state.players.map(p => ({player: p.player, username: p.username, ready: false}))
               ]
               return {
                 ...state, players: unReadyPlayers 
