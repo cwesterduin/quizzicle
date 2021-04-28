@@ -24,7 +24,7 @@ function myReducer (state = {players: [], answers: []}, action) {
             const likeIdx = state.players.indexOf(playerToToggle)
             const updatedPlayers = [ 
                 ...state.players.slice(0, likeIdx),
-                { ...playerToToggle, ready: !playerToToggle.ready },
+                { ...playerToToggle, ready: !playerToToggle.player.ready },
                 ...state.players.slice(likeIdx+1)
             ]
             return { ...state, players: updatedPlayers }
