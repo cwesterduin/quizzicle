@@ -3,7 +3,7 @@ import { PlayerCard } from '../../components';
 import io from 'socket.io-client';
 import axios from 'axios'
 
-import { addPlayer, playerReady, addSocket, allNotReady } from '../../actions'
+import { addPlayer, playerReady, addSocket, allNotReady, playerUsername } from '../../actions'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
@@ -59,6 +59,7 @@ const Lobby = () => {
 
     socket.on("player-name", (payload) => {
       console.log(payload.id + " had username " + payload.username)
+      dispatch(playerUsername(payload))
     });
 
     async function fetchInfo(){

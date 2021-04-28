@@ -10,6 +10,15 @@ function myReducer (state = {players: [], answers: []}, action) {
             ...state,
             players: action.payload.map(player => ({player: player, ready: false}))
         })
+        case 'PLAYER_USERNAME':
+          const playerToName = state.players.find(p => p.player === action.payload.id)
+          const nameIdx = state.players.indexOf(playerToName)
+          const updatedPlayerNames = [ 
+              ...state.players.slice(0, nameIdx),
+              { ...playerToName, username: action.payload.username },
+              ...state.players.slice(nameIdx+1)
+          ]
+          return { ...state, players: updatedPlayerNames }
           case 'PLAYER_READY':
             const playerToToggle = state.players.find(p => p.player === action.payload)
             const likeIdx = state.players.indexOf(playerToToggle)

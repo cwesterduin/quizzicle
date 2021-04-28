@@ -9,11 +9,14 @@ export const addSocket = socket => ({type: 'ADD_SOCKET', payload: socket})
 
 export const addPlayer = player => ({type: 'ADD_PLAYER', payload: player})  
 
+export const playerUsername = payload => ({type: 'PLAYER_USERNAME', payload: payload})
+
 export const playerReady = player => ({type: 'PLAYER_READY', payload: player})  
 
 export const allNotReady = () => ({type: 'ALL_NOT_READY'})  
 
 export const addAnswer = answer => ({type: 'ADD_ANSWER', payload: answer})
+
 
 export const getAnswers = gameId => {
     return async (dispatch) => {
