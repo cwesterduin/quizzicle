@@ -18,6 +18,15 @@ import icon7 from '../../images/player-7.png';
 import icon8 from '../../images/player-8.png';
 import icon9 from '../../images/player-9.png';
 import icon10 from '../../images/player-10.png';
+const icons = [icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10];
+let returnIcon = icons[Math.floor(Math.random() * icons.length)];
+
+function PlayerCards({ currentPlayers}){
+  return (
+    currentPlayers.map((player, index) => <PlayerCard key={index} player={player.player} username={player.username} me={false} icon={returnIcon} ready={player.ready} />)
+    )
+  }
+
 
 const Lobby = () => {
   // const [socket, setSocket] = useState(null);
@@ -25,7 +34,6 @@ const Lobby = () => {
 
   const { id } = useParams()
   const history = useHistory()
-  console.log(id)
   const dispatch = useDispatch()
   const serverEndpoint = "http://localhost:5001"
 
@@ -49,6 +57,10 @@ const Lobby = () => {
       dispatch(playerReady(socket))
     });
 
+    socket.on("player-name", (payload) => {
+      console.log(payload.id + " had username " + payload.username)
+    });
+
     async function fetchInfo(){
     const { data } = await axios.get(`http://localhost:3000/games/${id}/simple`)
     setGameInfo(data)
@@ -69,29 +81,32 @@ const Lobby = () => {
   }
 
   // const fakePlayers = ["123123", "213424", "234234", "234345"];
-  
-  const icons = [icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10];
 
-  const returnIcon = () => {
-    let icon = icons[Math.floor(Math.random() * icons.length)];
-    return icon;
+ 
+
+  function handleUsernameSubmit(e){
+    e.preventDefault()
+    socket.socket.emit("name", ({id: socket.socket.id, username: username}))
   }
 
-  const readyMarker = false;
-
-  const returnPlayer = currentPlayers.map(player => {
-      return <PlayerCard player={player.player} me={player.player === socket.socket.id} icon={returnIcon()} ready={player.ready} />
-  });
-
+  const [username, setUsername] = useState("")
   return (
     <main id="lobby" className="container">
       {gameInfo && (
-        <section style={{color: 'white'}}>
+        <section style={{ color: "white" }}>
           <p>Category: {gameInfo.category}</p>
           <p>Type: {gameInfo.type}</p>
           <p>Length: {gameInfo.length}</p>
         </section>
       )}
+
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input type="submit" onClick={(e) => handleUsernameSubmit(e)} value="set username" />
 
       <div class="row">
         <div class="col-md-6 text-center align-self-center">
@@ -101,7 +116,7 @@ const Lobby = () => {
         </div>
         <div class="col-md-6">
           <h3>Player List:</h3>
-          {returnPlayer}
+          <PlayerCards currentPlayers={currentPlayers} />
         </div>
       </div>
     </main>

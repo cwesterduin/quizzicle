@@ -24,6 +24,13 @@ io.on('connection', socket => {
             console.log(socketId + " is ready!")
             io.to(roomId).emit('player-ready', socketId)
         })
+
+        //handle user adds username
+        socket.on('name', (payload) => {
+            console.log(payload.id + " has username " + payload.username)
+            io.to(roomId).emit('player-name', (payload))
+        })
+
     // *************************************************************************************
         // HANDLE USER ENTERS ROOM
         socket.on("disconnect", () => {
