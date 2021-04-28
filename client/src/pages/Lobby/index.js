@@ -23,7 +23,7 @@ let returnIcon = icons[Math.floor(Math.random() * icons.length)];
 
 function PlayerCards({ currentPlayers}){
   return (
-    currentPlayers.map((player, index) => <PlayerCard key={index} player={player.player.player} username={player.player.username} me={false} icon={returnIcon} ready={player.player.ready} />)
+    currentPlayers.map((player, index) => <PlayerCard key={index} player={player.player.player} username={player.player.username} me={false} icon={returnIcon} ready={player.ready} />)
     )
   }
 

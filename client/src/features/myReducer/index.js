@@ -20,7 +20,7 @@ function myReducer (state = {players: [], answers: []}, action) {
           ]
           return { ...state, players: updatedPlayerNames }
           case 'PLAYER_READY':
-            const playerToToggle = state.players.find(p => p.player === action.payload)
+            const playerToToggle = state.players.find(p => p.player.player === action.payload)
             const likeIdx = state.players.indexOf(playerToToggle)
             const updatedPlayers = [ 
                 ...state.players.slice(0, likeIdx),

@@ -64,7 +64,7 @@ const GameRoom = () => {
     const readyMarker = false;
   
     const returnPlayer = currentPlayers.map((player, index) => {
-        return <PlayerCard key={index} player={player.player} me={player.player === socket.socket.id} icon={returnIcon()} ready={player.ready} />
+        return <PlayerCard key={index} player={player.player.player}  username={player.player.username} me={false} icon={returnIcon()} ready={player.ready} />
     });
   
 
