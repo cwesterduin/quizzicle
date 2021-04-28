@@ -1,0 +1,43 @@
+#game-room {
+  height: 100vh;
+  p {
+    text-align: center;
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+}
+
+.theme-planet-1 {
+  background-color: rgba(79, 99, 146, 0.5); 
+
+  button {
+    background: rgb(15,27,108);
+    background: linear-gradient(0deg, rgba(15,27,108,1) 0%, rgba(6,142,252,1) 100%);
+  }
+
+  transition: background-color 1s ease;
+}
+
+.theme-planet-2 {
+  background-color: rgb(255,60,90,0.5);
+
+  button {
+    background: rgb(203,0,105);
+    background: linear-gradient(0deg, rgba(203,0,105,1) 0%, rgba(255,60,90,1) 100%);
+  }
+
+  transition: background-color 1s ease;
+}
+
+.theme-planet-3 {
+  background-color: rgba(78,0,114,0.5);
+
+  button {
+    background: rgb(78,0,114);
+    background: linear-gradient(0deg, rgba(78,0,114,1) 0%, rgba(177,21,255,1) 100%);
+  }
+
+  transition: background-color 1s ease;
+}

@@ -1,0 +1,25 @@
+.options-section {
+
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  button {
+    color: white;
+    width: calc(50% - 50px);
+    padding: 10px 50px;
+    border-radius: 25px;
+    background-color: blue;
+    border: none;
+    margin: 10px 25px;
+    text-align: left;
+
+    span {
+      font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+}

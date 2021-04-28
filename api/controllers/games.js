@@ -58,6 +58,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/:id/players/:player', async (req, res) => {
+    console.log(req.params.player)
     try {
         const game = await Game.addPlayers(req.params.id, req.params.player)
         res.status(200).json(game)
@@ -68,6 +69,7 @@ router.post('/:id/players/:player', async (req, res) => {
 });
 
 router.post('/:id/players/:player/answers', async (req, res) => {
+    console.log(req.params.player, req.body)
     try {
         const game = await Game.addAnswers(req.params.id, req.params.player, req.body)
         res.status(200).json(game)
