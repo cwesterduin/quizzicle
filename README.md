@@ -1,4 +1,4 @@
-# Trivia Duck <img src="https://i.imgur.com/kKh40uK.png" width="100" height="100">
+# Trivia Duck <img src="https://i.imgur.com/kKh40uK.png" width="100" height="100"> 
 ## Shoot yourself into space ...
 
 [![Netlify Status](url)
