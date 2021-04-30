@@ -39,7 +39,7 @@ Create multiplayer quizz web app with a space theme design that would allow user
 8. SASS/SCSS for styling
 9. Axios API for data fetching
 
-## Design Process
+## Design Processes
 
 Main stages of the process were:
 1. Initial brainstorming:
@@ -65,6 +65,9 @@ Main stages of the process were:
 Basic initial design (game page)
 
 ![image](https://i.imgur.com/PHJcEi8.png)
+
+<img src="https://i.imgur.com/VZTHhit.png" width="300" height="100"> <img src="https://i.imgur.com/84u2eS9.png" width="100" height="300">
+
 
 ## todo / bugs
 
