@@ -1,6 +1,8 @@
 # Trivia Duck <img src="https://i.imgur.com/kKh40uK.png" width="100" height="100"> 
 ## Shoot yourself into space ...
 
+https://trivia-duck.netlify.app/
+
 ## Client
 
 Dear User,
