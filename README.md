@@ -64,7 +64,7 @@ Main stages of the process were:
 
 Basic initial design (game page)
 
-![image](https://i.imgur.com/QQGY1dR.jpg)
+![image](https://i.imgur.com/PHJcEi8.png)
 
 ## todo / bugs
 
