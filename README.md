@@ -1,7 +1,7 @@
 # Trivia Duck <img src="https://i.imgur.com/kKh40uK.png" width="100" height="100"> 
 ## Shoot yourself into space ...
 
-[![Netlify Status](url)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dafd330d-8703-4f6d-a426-d9a0682089eb/deploy-status)](https://app.netlify.com/sites/peaceful-hoover-3dc7e0/deploys)
 
 
 ## Client
