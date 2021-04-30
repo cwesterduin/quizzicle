@@ -66,8 +66,7 @@ Basic initial design (game page)
 
 ![image](https://i.imgur.com/PHJcEi8.png)
 
-<img src="https://i.imgur.com/VZTHhit.png" width="300" height="100"> <img src="https://i.imgur.com/84u2eS9.png" width="100" height="300">
-
+<img src="https://i.imgur.com/VZTHhit.png" width="300"> 
 
 ## todo / bugs
 
