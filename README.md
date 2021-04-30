@@ -1,4 +1,4 @@
-# Trivia Duck ![image](https://i.imgur.com/kKh40uK.png | width=100)
+# Trivia Duck ![image](https://i.imgur.com/kKh40uK.png)
 ## Shoot yourself into space ...
 
 [![Netlify Status](url)
