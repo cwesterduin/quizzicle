@@ -1,7 +1,7 @@
 # Trivia Duck <img src="https://i.imgur.com/kKh40uK.png" width="100" height="100"> 
 ## Shoot yourself into space ...
 
-![Netlify Status](https://api.netlify.com/api/v1/badges/dafd330d-8703-4f6d-a426-d9a0682089eb/deploy-status)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bebc6f86-31d4-4751-a6f5-e2f7f64be484/deploy-status)](https://app.netlify.com/sites/trivia-duck/deploys)
 
 ## Client
 
@@ -80,67 +80,3 @@ Basic initial design (game page)
 1. Testing many components and layers of the application.
 2. Code hygiene and efficiency
 3. 
-### Bugs
-
-1. When room creator hits "Ready Up" some users might lose their "Ready Up" status and have to press button again
-
-## API 
-- POST /games
-  - creates a new game with a unique id and a list of questions, returns the id to redirect the user
-  - optional query params like this /games?amount=5&difficulty=easy&category=10&type=multiple
-    - if these are left out then random values will be assigned  
- 
- - GET /games/:id e.g /games/6086c0c4d44a15002cf791b4
-   - returns array of questions for that game
-   
-```
-   {
-  "id": "6086c0c4d44a15002cf791b4",
-  "questions": [
-    {
-      "category": "Sports",
-      "type": "boolean",
-      "question": "Peyton Manning retired after winning Super Bowl XLIX.",
-      "possible_answers": [
-        "True",
-        "False"
-      ]
-    }, ... 
-   ]
-  }
-```
- - GET /games/:id/simple 
-   - returns an object with info about that game but no questions
-
-```
-{
-  "completed": false,
-  "started": true,
-  "type": "multiple",
-  "category": "Politics",
-  "length": 5
-}
-```
-
-- POST /games/:id/player/:playername e.g /games/6086c0c4d44a15002cf791b4/player/bob
-  - no body
-  - creates a new player in that game  
-
-
-- POST /games/:id/player/:playername/answers e.g /games/6086c0c4d44a15002cf791b4/player/bob/answers
-  - is sent at the end of the game
-  - needs a body of an array of a users answers e.g ["True", "False", "True"] or ["Ozzy Osbourne", "Abigail", "5"]
-  - adds users answers to the game
-
-- Get /games/:id/results e.g /games/6086c0c4d44a15002cf791b4/results
-  - sends a list of validated answers for the players in a game
-  - also sends scores
-
-## Future Features
-1. Allow users to select a duck of their choice
-2. View lobbies page
-3. Admin features for creator of a lo
-4. Chat box
-5. Better error handling
-6. Social media sharing
-
