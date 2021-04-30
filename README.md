@@ -66,34 +66,24 @@ Basic initial design (game page)
 
 ![image](https://i.imgur.com/PHJcEi8.png)
 
-<img src="https://i.imgur.com/VZTHhit.png" width="300"> 
+<img src="https://i.imgur.com/VZTHhit.png" width="300"> <img src="https://i.imgur.com/84u2eS9.png" width="300"> 
 
-## todo / bugs
+## Wins and Challenges
 
-- when creating a game, user should be able to send parameters from form
+### Wins
+1. Successfully integrated Open Trivia DB API for quiz game part.
+2. Animations made styling much more interesting and engaging.
+3. Managed to create a consistent brand for the product that is visually appealing.
+4. Successfully implemented Socket.io to allow multiplayer user game. 
+5. Implemented Redux flow to manage state globally and stay on top of product complexity.
 
-- store player icon in redux / db for results
-	- icons currently re-reassign whenever playerlist compoennet rerenders (which is often)
-	- just move the icon state to the redux store, similar to ready state
-	- also send this value to the database when players are created so icon matches on hiscores
+### Challenges
+1. Testing many components and layers of the application.
+2. Code hygiene and efficiency
+3. 
+### Bugs
 
-- prevent users joining lobby when game is started / completed
-- prevent users joining game when game is completed
-	- logic for this exists on the server at the game/:id/simple route, just a matter of blocking the rendering on the client
-
-- improve visuals of answer buttons, maybe take a look at how the state is set up here 
-- submit event on the button should only fire once. Maybe call the redux action in the parent when it moves to the next question rather than on clicking the submit button
-
-- set usernames? again think this would just be a case of adding this as an attribute to the player store and sending to the db also 
-
-- results page should be formatted using the much more visually pleasing Hiscore page component
-
-- refactor code 
-	- there is a lot of reusable code that we could use components / custom hooks for to make testing easier
-	- we can split out the redux actions etc again or just structure the project so they are in single files, whatever makes it clearest / easy to test  
-
-- add global hiscore functionality
-	- when user scores are calculated we could add each score to a scores document in the db
+1. When room creator hits "Ready Up" some users might lose their "Ready Up" status and have to press button again
 
 ## API 
 - POST /games
@@ -146,3 +136,12 @@ Basic initial design (game page)
 - Get /games/:id/results e.g /games/6086c0c4d44a15002cf791b4/results
   - sends a list of validated answers for the players in a game
   - also sends scores
+
+## Future Features
+1. Allow users to select a duck of their choice
+2. View lobbies page
+3. Admin features for creator of a lo
+4. Chat box
+5. Better error handling
+6. Social media sharing
+
