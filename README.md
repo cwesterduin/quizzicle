@@ -12,7 +12,7 @@ We welcome you to our quizz game based on Open Trivia DB API. We hope it helps y
 ## Aim 
 Create multiplayer quizz web app with a space theme design that would allow users to simultaneously answer questions, choose No. of questions for each game and level of difficulty as well as topic of the quiz. Storage of high scores is also to be included. 
 
-## Installation and using the website
+## Installation and usage of the website
 
 ### Using Netlify deploy link
 [Trivia Duck](https://trivia-quack.netlify.app/)
